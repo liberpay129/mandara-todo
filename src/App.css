@@ -1,0 +1,428 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Header styles */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+  max-width: 800px; /* グリッドの幅に合わせて調整 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0; /* デフォルトのマージンをリセット */
+  flex-grow: 1;
+  text-align: center;
+  padding-right: 60px; /* クリアボタンの幅分のスペースを確保 */
+}
+
+.clear-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  position: absolute;
+  right: 410px;
+}
+
+.clear-button:hover {
+  background-color: #ff7875;
+}
+
+.clear-button:active {
+  background-color: #d9363e;
+}
+
+.grid-container {
+  display: inline-block;
+  border: 2px solid #333;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+
+.grid-row {
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.grid-row:nth-child(3n) {
+  margin-bottom: 10px; 
+}
+
+.grid-row:last-child {
+  margin-bottom: 0;
+}
+
+.grid-cell {
+  width: 90px;
+  height: 60px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 4px;
+  border: 2px solid #dde0e2;
+  position: relative;
+  background: white;
+  box-sizing: border-box;
+}
+
+
+.grid-cell:nth-child(3n) {
+  margin-right: 10px;
+}
+
+.grid-cell:last-child {
+  margin-right: 0;
+}
+
+
+.grid-cell:focus {
+  outline: 2px solid #007bff;
+  background-color: #fff;
+}
+
+.grid-cell:disabled {
+  background-color: #f0bac6;
+  color: #0d0d0e;
+  /*cursor: not-allowed; */
+  opacity: 1;
+}
+
+.debug {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.debug pre {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.grid-cell:disabled {
+  background-color: #f0bac6;
+  color: #0d0d0e;
+  cursor: not-allowed;
+  opacity: 1;
+
+}
+
+/* 中央のセル (3,3) のスタイル */
+.grid-cell[data-row="3"][data-col="3"] {
+  border: 2px solid #FF6B6B !important; /* 赤色系 */
+}
+
+/* 中央のセル (3,4) のスタイル */
+.grid-cell[data-row="3"][data-col="4"] {
+  border: 2px solid #103ac5 !important; /* 青色系 */
+}
+
+/* 中央のセル (3,5) のスタイル */
+.grid-cell[data-row="3"][data-col="5"] {
+  border: 2px solid #046301 !important; /* 緑色系 */
+}
+
+/* 中央のセル (4,3) のスタイル */
+.grid-cell[data-row="4"][data-col="3"] {
+  border: 2px solid #eedf0c !important; /* 黄色系 */
+}
+
+/* 中央のセル (4,4) のスタイル */
+.grid-cell[data-row="4"][data-col="4"] {
+  border: 2px solid black !important; 
+}
+
+/* 中央のセル (4,5) のスタイル */
+.grid-cell[data-row="4"][data-col="5"] {
+  border: 2px solid #cf72db !important; /* ピンク色系 */
+}
+
+/* 中央のセル (5,3) のスタイル */
+.grid-cell[data-row="5"][data-col="3"] {
+  border: 2px solid #480268 !important; /* 紫色系 */
+}
+
+/* 中央のセル (5,4) のスタイル */
+.grid-cell[data-row="5"][data-col="4"] {
+  border: 2px solid #60e080 !important; /* 黄緑色系 */
+}
+
+/* 中央のセル (5,5) のスタイル */
+.grid-cell[data-row="5"][data-col="5"] {
+  border: 2px solid #59d6d6 !important; /* 空色系 */
+}
+
+
+/* Todo機能が有効なセルのスタイル */
+.grid-cell.todo-enabled {
+  cursor: pointer;
+  border: 2px solid #f3dc95; /* デフォルト色 */
+}
+
+/* 各セルごとに異なる色を設定 */
+.grid-cell.todo-enabled[data-row="1"][data-col="1"] { /* いくら */
+  border-color: #FF6B6B; /* 赤色系 */
+}
+.grid-cell.todo-enabled[data-row="1"][data-col="4"] { /* いつ */
+  border-color: #103ac5; /* 青色系 */
+}
+.grid-cell.todo-enabled[data-row="1"][data-col="7"] { /* どこで */
+  border-color: #046301; /* 緑色系 */
+}
+.grid-cell.todo-enabled[data-row="4"][data-col="1"] { /* いくつ */
+  border-color: #eedf0c; /* 黄色系 */
+}
+.grid-cell.todo-enabled[data-row="4"][data-col="7"] { /* 誰が */
+  border-color: #cf72db; /* ピンク色系 */
+}
+.grid-cell.todo-enabled[data-row="7"][data-col="1"] { /* 方法 */
+  border-color: #480268; /* 紫色系 */
+}
+.grid-cell.todo-enabled[data-row="7"][data-col="4"] { /* なぜ */
+  border-color: #60e080; /* 黄緑系 */
+}
+.grid-cell.todo-enabled[data-row="7"][data-col="7"] { /* 何を */
+  border-color: #59d6d6; /* 空色系 */
+}
+
+.grid-cell.todo-enabled:hover {
+  background-color: #e3f2fd;
+  opacity: 0.8;
+}
+
+/* Todoがあるセルの視覚的インジケーター */
+.grid-cell.has-todos {
+  background-color: #fff3cd;
+  border-color: #ffc107;
+}
+
+.grid-cell.has-todos::after {
+  content: "📝";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 12px;
+}
+
+/* Todoモーダルのスタイル */
+.todo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.todo-modal {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgb(0, 0, 0, 0.15);
+}
+
+.todo-modal-help {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 120vh;
+  overflow-y: auto;
+  text-align: left;
+  box-shadow: 0 4px 20px rgb(0, 0, 0, 0.15);
+}
+
+.todo-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.todo-modal-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ヘッダー内のボタンコンテナ */
+.header-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  min-height: 60px; /* ヘッダーの高さを確保 */
+}
+
+/* クリアボタン */
+.clear-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  position: absolute;
+  right: 120px; /* 使い方ボタンとの間隔を調整 */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.clear-button:hover {
+  background-color: #ff7875;
+}
+
+/* 使い方ボタン */
+.showHelp-button {
+  background-color: #d9dfe0;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.showHelp-button:hover {
+  background-color: #07a0d1;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+/* Todo入力セクション */
+.todo-input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.add-todo-button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-todo-button:hover {
+  background-color: #0056b3;
+}
+
+/* Todoリスト */
+.todo-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  background-color: #fafafa;
+}
+
+.todo-item.completed {
+  opacity: 0.7;
+  background-color: #f0f0f0;
+}
+
+.todo-checkbox {
+  margin: 0;
+}
+
+.todo-text {
+  flex: 1;
+  text-align: left;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.delete-todo-button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.delete-todo-button:hover {
+  background-color: #c82333;
+}
+
+.no-todos {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin: 20px 0;
+}
