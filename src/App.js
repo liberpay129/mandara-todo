@@ -168,21 +168,21 @@ function App() {
       return  "なぜ"
     } else if (rowIndex===5 && colIndex===5) {
       return  "何を"
-    } else if (rowIndex%3==0 && colIndex%3==0) {
+    } else if (rowIndex%3===0 && colIndex%3===0) {
       return  "1"
-    } else if (rowIndex%3==0 && colIndex%3==1) {
+    } else if (rowIndex%3===0 && colIndex%3===1) {
       return  "2"
-    } else if (rowIndex%3==0 && colIndex%3==2) {
+    } else if (rowIndex%3===0 && colIndex%3===2) {
       return  "3"
-    } else if (rowIndex%3==1 && colIndex%3==2) {
+    } else if (rowIndex%3===1 && colIndex%3===2) {
       return  "4"
-    } else if (rowIndex%3==2 && colIndex%3==2) {
+    } else if (rowIndex%3===2 && colIndex%3===2) {
       return  "5"
-    } else if (rowIndex%3==2 && colIndex%3==1) {
+    } else if (rowIndex%3===2 && colIndex%3===1) {
       return  "6"
-    } else if (rowIndex%3==2 && colIndex%3==0) {
+    } else if (rowIndex%3===2 && colIndex%3===0) {
       return  "7"
-    } else if (rowIndex%3==1 && colIndex%3==0) {
+    } else if (rowIndex%3===1 && colIndex%3===0) {
       return  "8"
     }
   };
