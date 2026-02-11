@@ -239,7 +239,7 @@ function App() {
         {grid.map((row, rowIndex) => (
           <div key={rowIndex} className="grid-row">
             {row.map((cell, colIndex) => {
-            const cellKey = `${rowIndex},${colIndex}`;
+            //const cellKey = `${rowIndex},${colIndex}`;
             //const hasTodos = (cellKey in todoLists) && todoLists[cellKey]?.length > 0;
             return(
               <input
